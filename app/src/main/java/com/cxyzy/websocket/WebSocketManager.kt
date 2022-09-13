@@ -21,7 +21,10 @@ object WebSocketManager {
             .readTimeout(5, TimeUnit.SECONDS)
             .connectTimeout(10, TimeUnit.SECONDS)
             .build()
-        request = Request.Builder().url(url).build()
+        request = Request.Builder()
+            .url(url)
+            .addHeader("Authorization", Credentials.basic("developer", "z2KNuXj6jme5B#"))
+            .build()
         messageListener = _messageListener
     }
 
@@ -70,7 +73,9 @@ object WebSocketManager {
      * @return boolean
      */
     fun sendMessage(text: String): Boolean {
-        return if (!isConnect()) false else mWebSocket.send(text)
+        return             if (!isConnect()) false
+        else
+            mWebSocket.send(text)
     }
 
     /**

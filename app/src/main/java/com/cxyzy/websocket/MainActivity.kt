@@ -8,8 +8,9 @@ import kotlin.concurrent.thread
 
 
 class MainActivity : AppCompatActivity(), MessageListener {
-//    private val serverUrl = "wss://websocket-echo.glitch.me"
-    private val serverUrl = "wss://demo.piesocket.com/v3/channel_1?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self"
+    //   private val serverUrl = "wss://websocket-echo.glitch.me"
+    private val serverUrl = "ws://10.2.10.48:8081/wms/websocket"
+//    private val serverUrl = "wss://demo.piesocket.com/v3/channel_1?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
