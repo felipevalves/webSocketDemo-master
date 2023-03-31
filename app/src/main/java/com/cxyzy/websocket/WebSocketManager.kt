@@ -23,7 +23,7 @@ object WebSocketManager {
             .build()
         request = Request.Builder()
             .url(url)
-            .addHeader("Authorization", Credentials.basic("developer", "z2KNuXj6jme5B#"))
+            //.addHeader("Authorization", Credentials.basic("developer", "z2KNuXj6jme5B#"))
             .build()
         messageListener = _messageListener
     }
@@ -93,8 +93,8 @@ object WebSocketManager {
      */
     fun close() {
         if (isConnect()) {
-            mWebSocket.cancel()
-            mWebSocket.close(1001, "客户端主动关闭连接")
+//            mWebSocket.cancel()
+            mWebSocket.close(1000, "Fechar conexao")
         }
     }
 
@@ -109,7 +109,7 @@ object WebSocketManager {
                 mWebSocket = webSocket
                 isConnect = response.code() == 101
                 if (!isConnect) {
-                    reconnect()
+                   // reconnect()
                 } else {
                     Log.i(TAG, "connect success.")
                     messageListener.onConnectSuccess()
@@ -164,7 +164,7 @@ object WebSocketManager {
                 )
                 isConnect = false
                 messageListener.onConnectFailed()
-                reconnect()
+              //  reconnect()
             }
         }
     }
